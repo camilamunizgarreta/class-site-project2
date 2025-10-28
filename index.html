@@ -8,34 +8,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap" rel="stylesheet">
 
   <style>
+    /* Page background and readable base font */
     body {
+      background: #f7f7f7;
+      color: #222;
+      /* Restore the decorative font for the whole page as requested */
+      font-family: 'Beau Rivage', cursive, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+      font-size: 20px;
+    }
+
+    /* Centered content container for consistent left alignment inside */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Keep headings in the decorative font but readable */
+    h1, h2 {
       font-family: 'Beau Rivage', cursive;
       text-align: center;
-      margin: 20px;
+      margin-top: 0;
+      color: #111;
     }
 
+    /* Row now uses standard flex (not inline-flex) so rows align left inside .content */
     .row {
-      display: inline-flex;
+      display: flex;
       align-items: flex-start;
+      gap: 20px;
       margin-bottom: 30px;
-      max-width: 900px;
     }
 
+    /* Images are fixed-width block on the left of text and look neat */
     .row img {
       width: 150px;
       height: auto;
-      margin-right: 20px;
+      flex: 0 0 150px;
+      margin: 0;
+      border-radius: 6px;
+      object-fit: cover;
     }
 
     .row p {
       text-align: left;
-      line-height: 1.6;
-      max-width: 700px;
+      line-height: 1.9;
+      font-size: 20px;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Small screens: stack image above text */
+    @media (max-width: 600px) {
+      .content { padding: 16px; }
+      .row { flex-direction: column; gap: 12px; }
+      .row img { width: 100%; flex: none; }
+      .row p { font-size: 18px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="content">
 
   <h1>Ten Principles for Good Design</h1>
   <h2>by Dieter Rams</h2>
@@ -99,6 +138,8 @@
     <p><strong>10) Good design is as little design as possible</strong><br>
     Less, but better - because it concentrates on the essential aspects, and the products are not burdened with non-essentials.</p>
   </div>
+
+</div> <!-- .content -->
 
 </body>
 </html>
